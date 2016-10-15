@@ -1,6 +1,11 @@
 (require 'evil)
 (evil-mode 1)
 
+(use-package evil-surround
+  :diminish evil-surround-mode
+  :config
+  (global-evil-surround-mode))
+
 (use-package which-key
   :ensure t
   :diminish which-key-mode
@@ -59,7 +64,7 @@
   :config
   (projectile-global-mode 1)
   (setq projectile-completion-system 'ivy)
-  (setq projectile-mode-line '(:eval (format "Prj[%s]" (projectile-project-name)))))
+  (setq projectile-mode-line '(:eval (format "[%s]" (projectile-project-name)))))
 
 (use-package tern
   :diminish tern-mode 
@@ -77,4 +82,13 @@
 (use-package ace-window
   :bind ("M-p" . ace-window))
 
-(electric-pair-mode 1)
+(use-package smartparens
+  :diminish smartparens-mode
+  :config 
+  (add-hook 'js-mode-hook #'smartparens-mode)
+  (add-hook 'emacs-lisp-mode-hook #'smartparens-mode))
+
+(use-package hungry-delete
+  :diminish hungry-delete-mode
+  :config
+  (global-hungry-delete-mode))
