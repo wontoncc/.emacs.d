@@ -2,3 +2,4 @@
 (global-set-key (kbd "<f8>") 'projectile-switch-to-buffer)
 (global-set-key (kbd "C-<f8>") 'ivy-switch-buffer)
 (global-set-key (kbd "<f9>") 'toggle-truncate-lines)
+(global-set-key (kbd "C-c k") 'counsel-yank-pop)
